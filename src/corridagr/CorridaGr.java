@@ -17,7 +17,7 @@ public class CorridaGr {
     public static void main(String[] args) {
         // TODO code application logic here
         //numero de grilos
-        int numGrilos = 2;
+        int numGrilos = 4;
         
         //tamanho da corrida
         int linhaChegada = 200;

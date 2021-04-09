@@ -17,11 +17,13 @@ public class ThreadGrilo extends Thread{
     private int linhaChegada;
     private int totalPercorrido = 0;
     private int pulos = 0;
+    private static int colocacao = 0;
     
 
     public ThreadGrilo(Grilo g, int linhaChegada) {
         this.setGrilo(g);
-        this.linhaChegada = linhaChegada;
+        this.setLinhaChegada(linhaChegada);
+        //this.linhaChegada = linhaChegada;
         
     }
     
@@ -44,17 +46,23 @@ public class ThreadGrilo extends Thread{
                 System.out.println("O " + this.grilo.getNome() + " pulou " + this.grilo.getDistanciaRandomica() +
                     "cm e já percorreu " + this.totalPercorrido + "cm");
             }
-            
-            
-            
                     
             this.run();
         }else{
-            System.out.println(this.grilo.getNome() + " alcançou a linha de chegada com " + pulos + " pulos");
+            colocacao++;
+            System.out.println(this.grilo.getNome() + " foi o " + colocacao + "° e alcançou a linha de chegada com " + pulos + " pulos");
         }
         
         
         
+    }
+
+    public int getTotalPercorrido() {
+        return totalPercorrido;
+    }
+
+    public void setTotalPercorrido(int totalPercorrido) {
+        this.totalPercorrido = totalPercorrido;
     }
 
     
@@ -64,6 +72,14 @@ public class ThreadGrilo extends Thread{
 
     public void setGrilo(Grilo grilo) {
         this.grilo = grilo;
+    }
+
+    public int getLinhaChegada() {
+        return linhaChegada;
+    }
+
+    public void setLinhaChegada(int linhaChegada) {
+        this.linhaChegada = linhaChegada;
     }
 
     
